@@ -20,6 +20,7 @@ from prolif.interactions.interactions import (
     PiCation,
     PiStacking,
     VdWContact,
+    WBAcceptor,
     XBAcceptor,
     XBDonor,
 )
