@@ -41,6 +41,7 @@ __all__ = [
     "PiCation",
     "PiStacking",
     "VdWContact",
+    "WBAcceptor",
     "XBAcceptor",
     "XBDonor",
 ]
@@ -118,6 +119,28 @@ HBDonor = HBAcceptor.invert_role(
     "HBDonor",
     "Hbond interaction between a ligand (donor) and a residue (acceptor)",
 )
+
+
+class WBAcceptor(SingleAngle):
+    """WBA Place holder
+
+    """
+
+    def __init__(
+        self,
+        acceptor="[#7&!$([nX3])&!$([NX3]-*=[O,N,P,S])&!$([NX3]-[a])&!$([Nv4&+1]),O&!$([OX2](C)C=O)&!$(O(~a)~a)&!$(O=N-*)&!$([O-]-N=O),o+0,F&$(F-[#6])&!$(F-[#6][F,Cl,Br,I])]",
+        donor="[$([O;X2;H2;+0])]-[$([H][OX2])]",
+        distance=3.5,
+        WBA_angle=(130, 180),
+    ):
+        super().__init__(
+            lig_pattern=acceptor,
+            prot_pattern=donor,
+            distance=distance,
+            angle=WBA_angle,
+            distance_atom="P1",
+            metadata_mapping={"angle": "WBA_angle"},
+        )
 
 
 class XBAcceptor(DoubleAngle):
